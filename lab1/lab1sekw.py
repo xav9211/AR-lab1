@@ -54,7 +54,7 @@ def visualize(plate, size):
     Z = griddata(x, y, z, xi, yi)
     # print(X)
 
-    surf = ax.plot_surface(Y, X, Z, rstride=5, cstride=5, cmap=cm.jet,
+    surf = ax.plot_surface(Y, X, Z, rstride=1, cstride=1, cmap=cm.jet,
                        linewidth=1, antialiased=True)
 
     ax.set_zlim3d(np.min(z), np.max(z))
@@ -88,6 +88,6 @@ def main():
     plate = initialize(100, 100, 0, 0, 0, size)
     compute(plate, size, 1)
     show(plate, size)
-    # visualize(plate, size)
+    visualize(plate, size)
 
 main()
