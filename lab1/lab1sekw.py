@@ -23,6 +23,9 @@ def initialize(up, left, bottom, right, mid, size):
 
     return result
 
+def f(x, y):
+    return 0
+
 def show(plate, size):
     for i in range(1, size - 1):
         row = ""
@@ -50,15 +53,16 @@ def compute(plate, size, iter):
         prev = copy.deepcopy(plate)
         for i in range(1, size - 1):
             for j in range(1, size - 1):
-                plate[i][j] = computePoint(prev[i-1][j], prev[i][j-1], prev[i+1][j], prev[i][j+1], prev[i][j])
+                plate[i][j] += computePoint(i, j, prev)
 
-def computePoint(yp, xp, yn, xn, xy):
-    return (yp + xp + yn + xn)/4
+def computePoint(x, y, prev):
+    dt = 0.05
+    return ((prev[x-1][y] + prev[x][y-1] + prev[x+1][y] + prev[x][y+1] - 4*prev[x][y] + f(x,y)) * dt) / 4
 
 def main():
     size = 30
     plate = initialize(100.0, 0, 0, 0, 0, size)
-    compute(plate, size, 500)
+    compute(plate, size, 10000)
     show(plate, size)
     visualize(plate, size)
 

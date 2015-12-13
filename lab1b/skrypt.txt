@@ -1,0 +1,10 @@
+set terminal gif animate
+set output 'wykres.gif'
+unset key
+set view map
+set title "Rozchodzenie się ciepła."
+set cbrange [ 0.00000 : 1000.00000 ] noreverse nowriteback
+set cbtics 20
+set palette rgbformulae -21, -22, -23
+
+do for [i=0:199] { splot sprintf('result/file_%d.txt', i*10) matrix with image; pause 0.005 }
