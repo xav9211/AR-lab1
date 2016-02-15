@@ -1,0 +1,9 @@
+set term png size 640,320
+set output 'speedup.png'
+set xlabel "Number of processes" font "Arial-Bold,13"
+set ylabel "Speedup" font "Arial-Bold,13"
+set title "Speedup depend of processes" font "Arial-Bold,13"
+unset logscale x
+unset logscale y
+set key left top
+plot 'speedup1.txt' using 1:2 w l title "Size-500 : Iterations-3000", 'speedup2.txt' using 1:2 w l title "Size-50 : Iterations-3000", 'speedup3.txt' using 1:2 w l title "Size-500 : Iterations-300"

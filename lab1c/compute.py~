@@ -1,0 +1,40 @@
+import csv
+
+file1 = open("result.txt", "rb")
+file2 = open("result1.txt", "rb")
+file3 = open("result2.txt", "rb")
+
+speedup1 = open("spedup1.txt", "wb")
+speedup2 = open("spedup2.txt", "wb")
+speedup3 = open("spedup3.txt", "wb")
+
+l1 = [map(float, line.split('  ')) for line in file1]
+
+for i in xrange(iter):
+    
+
+
+    l1 = [map(float, line[:-2].split('  ')) for line in file1]
+    l2 = [map(float, line[:-2].split('  ')) for line in file2]
+    l3 = [map(float, line[:-2].split('  ')) for line in file3]
+    l4 = [map(float, line[:-2].split('  ')) for line in file4]
+
+    l = []
+    l.append([1000.0]*28)
+    for j in xrange(size):
+        l.append([])
+        l[j].extend(l1[j])
+        l[j].extend(l2[j])
+
+    for j in xrange(size):
+        l.append([])
+        l[j+size].extend(l3[j])
+        l[j+size].extend(l4[j])
+
+    file.write(show(l))
+
+    file1.close()
+    file2.close()
+    file3.close()
+    file4.close()
+    file.close()
